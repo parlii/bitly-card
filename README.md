@@ -18,7 +18,7 @@ npm i
 
 Now you can run your local development server:
 
-```bashØ
+```bash
 npm run dev
 ```
 
@@ -36,6 +36,6 @@ BITLY_ACCESS_TOKEN=your-access-token
 
 You can generate an access token from the [Developer settings](https://app.bitly.com/settings/api/) in your Bitly account.
 
-## Deploy
+## Deploys
 
-This project is connected to a Vercel deployment, and all
+This project is connected to a Vercel deployment, and each push will receive a preview URL to view the app. The `main` branch is considered "Production" and will be deployed to [https://bitly-card.vercel.app/](https://bitly-card.vercel.app/).
