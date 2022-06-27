@@ -77,7 +77,8 @@ html {
   //   align-items: center;
   top: 40%;
   background-color: rgb(157, 147, 225);
-  width: 400px;
+  width: 300px;
+  height: 110px;
   margin: 0 auto;
   //   left: 100px;
   //   text-align: center;
@@ -87,7 +88,7 @@ html {
   font-size: larger;
   margin: 5px;
   font-weight: 600;
-  font-size: 30pt;
+  font-size: 40pt;
   color: cornsilk;
 }
 
@@ -97,4 +98,8 @@ html {
 
 .logo {
   margin-top: 10px;
+}
+
+.domain {
+  margin: 5px;
 }
