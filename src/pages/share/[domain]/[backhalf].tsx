@@ -26,14 +26,15 @@ const Page: NextPage<Props> = ({ domain, backhalf }) => {
   return (
     <div className="body">
       <div className="card">
-        <Image className="logo" src={logo} height="150px" width="150px" />
+        {/* <div className="logo"></div> */}
+        <Image className="logo" src={logo} height="30px" width="30px" />
         <div className="qr">
           <Image src={qr} height="150px" width="150px" />
-          <div className="shortLinkInfo">
-            <div className="domain">{domain}</div>
-            <div className="backhalf">{backhalf}</div>
-            <div className="forwardsTo">Forwards to domain.com/</div>
-          </div>
+        </div>
+        <div className="shortLinkInfo">
+          <div className="domain">{domain}</div>
+          <div className="backhalf">{backhalf}</div>
+          <div className="forwardsTo">Forwards to domain.com/</div>
         </div>
       </div>
     </div>
