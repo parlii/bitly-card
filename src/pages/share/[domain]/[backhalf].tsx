@@ -27,7 +27,7 @@ const Page: NextPage<Props> = ({ domain, backhalf }) => {
     <div className="body">
       <div className="card">
         {/* <div className="logo"></div> */}
-        <Image className="logo" src={logo} height="30px" width="30px" />
+        {/* <Image className="logo" src={logo} height="30px" width="30px" /> */}
         <div className="qr">
           <Image src={qr} height="150px" width="150px" />
         </div>

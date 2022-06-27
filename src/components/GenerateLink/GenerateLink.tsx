@@ -20,7 +20,7 @@ const GenerateLink: React.FC = () => {
 
   return (
     <form name="generate-link" onSubmit={onSubmit}>
-      <div className="destinationUrlForm">
+      <div className="body">
         {/* <label htmlFor="destinationUrl">Destination URL</label> */}
         <input
           name="destinationUrl"
