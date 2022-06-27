@@ -29,7 +29,7 @@ const Page: NextPage<Props> = ({ domain, backhalf }) => {
         {/* <div className="logo"></div> */}
         {/* <Image className="logo" src={logo} height="30px" width="30px" /> */}
         <div className="qr">
-          <Image src={qr} height="150px" width="150px" />
+          <Image src={qr} height="300px" width="300px" />
         </div>
         <div className="shortLinkInfo">
           <div className="domain">{domain}</div>

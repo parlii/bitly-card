@@ -21,6 +21,7 @@ const GenerateLink: React.FC = () => {
   return (
     <form name="generate-link" onSubmit={onSubmit}>
       <input
+        className="destinationUrl"
         name="destinationUrl"
         onChange={(e) => {
           setDestinationUrl(e.target.value);
