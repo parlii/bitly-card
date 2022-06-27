@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
+import { useRouter } from '../../../node_modules/next/router';
 import { FormContext } from '../../context/formContext';
 
 const GenerateLink: React.FC = () => {
-  const { destinationUrl, setDestinationUrl } = useContext(FormContext);
+  const { destinationUrl, setDestinationUrl, setShortlink } =
+    useContext(FormContext);
+  const router = useRouter();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -12,6 +15,9 @@ const GenerateLink: React.FC = () => {
       method: 'POST',
       body: JSON.stringify(body),
     });
+    const data = await response.json();
+    setShortlink(data.shortlink);
+    router.push(`/share/${data.shortlink}`);
   };
 
   return (
