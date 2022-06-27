@@ -1,6 +1,10 @@
-import { GetServerSideProps } from 'next';
+import {
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+  NextPage,
+} from 'next';
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const {
     params: { backhalf },
   } = ctx;
@@ -8,7 +12,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   return { props: { backhalf } };
 };
 
-const Page: React.FC = ({ backhalf }) => {
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const Page: NextPage<Props> = ({ backhalf }) => {
   return (
     <div>
       <h1>{backhalf}</h1>
