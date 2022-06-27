@@ -1,1 +1,64 @@
 @import 'globals';
+
+.body {
+  background-color: rgb(208, 240, 253);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  border: 3px solid green;
+}
+
+.destinationUrlForm {
+  background-color: aqua;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  border: 3px solid green;
+}
+
+.card {
+  border: 2px solid green;
+  height: 350px;
+  width: 250px;
+}
+
+.qr {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 10%;
+  margin: 0 auto;
+  //   height: 250px;
+}
+
+.shortLinkInfo {
+  //   display: flex;
+  position: relative;
+  justify-content: center;
+  //   align-items: center;
+  top: 60px;
+  background-color: rgb(208, 240, 253);
+  width: 150px;
+  margin: 0 auto;
+  //   left: 100px;
+  //   text-align: center;
+}
+
+.backhalf {
+  font-size: larger;
+  margin: 5px;
+  font-weight: 600;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.forwardsTo {
+  font-size: 5pt;
+}
+
+.logo {
+  background: url('../../public/bitly_logo.png');
+}

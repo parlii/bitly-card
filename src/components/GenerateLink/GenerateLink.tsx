@@ -20,17 +20,18 @@ const GenerateLink: React.FC = () => {
 
   return (
     <form name="generate-link" onSubmit={onSubmit}>
-      <div>
-        <label htmlFor="destinationUrl">Destination URL</label>
+      <div className="destinationUrlForm">
+        {/* <label htmlFor="destinationUrl">Destination URL</label> */}
         <input
           name="destinationUrl"
           onChange={(e) => {
             setDestinationUrl(e.target.value);
           }}
           type="text"
+          placeholder="destination url"
           value={destinationUrl}
         />
-        <button type="submit">Submit</button>
+        {/* <button type="submit">Submit</button> */}
       </div>
     </form>
   );
