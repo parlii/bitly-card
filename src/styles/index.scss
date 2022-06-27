@@ -16,16 +16,6 @@ html {
   //   border: 3px solid green;
 }
 
-.destinationUrlForm {
-  background-color: aqua;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  //   height: 500px;
-  border: 3px solid green;
-}
-
 .card {
   background: url('../../public/6.png');
   background-size: cover;
@@ -40,8 +30,8 @@ html {
   position: relative;
   justify-content: center;
   align-items: center;
-  top: 32%;
-  left: 2px;
+  top: 33%;
+  left: 4px;
   // margin: 0 auto;
   //   height: 250px;
   // border: 4px solid; // want the border to go around the qr code
