@@ -4,7 +4,15 @@ import { FormContext } from '../../context/formContext';
 const GenerateLink: React.FC = () => {
   const { destinationUrl, setDestinationUrl } = useContext(FormContext);
 
-  const onSubmit = () => {};
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const body = { destinationUrl };
+    const response = await fetch('api/generate', {
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+  };
 
   return (
     <form name="generate-link" onSubmit={onSubmit}>
@@ -18,6 +26,7 @@ const GenerateLink: React.FC = () => {
           type="text"
           value={destinationUrl}
         />
+        <button type="submit">Submit</button>
       </div>
     </form>
   );
