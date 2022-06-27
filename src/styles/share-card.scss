@@ -1,0 +1,46 @@
+.share-card-page {
+  height: 100vh;
+  overflow-y: auto;
+
+  &--style-5 {
+    background-color: #623667;
+  }
+  &--style-6 {
+    background-color: #09053d;
+  }
+  &--style-7 {
+    background-color: #11428e;
+  }
+
+  &__card {
+    background: url('../../public/img/backgrounds/6.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+  }
+  &__qr-code {
+    max-width: 300px;
+    width: 58%;
+  }
+  &__link-info {
+    background-color: rgb(157, 147, 225);
+    bottom: 10%;
+    color: $dark;
+    height: auto;
+    left: 50%;
+    margin-left: -150px;
+    position: absolute;
+    width: 300px;
+    text-align: center;
+
+    &__backhalf {
+      font-size: 40px;
+      font-weight: 700;
+    }
+    &__forwardsTo {
+      font-size: 10px;
+    }
+  }
+}
