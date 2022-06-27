@@ -8,6 +8,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Bitly Card is a greenfield app for users to input a destination URL, generate a short link, and then display a beautiful customized page for sharing the link.
 
+### Technology
+
+- [React 18](https://reactjs.org/) and [Next.js 12.1](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Husky](https://typicode.github.io/husky/#/), [lint-staged](https://github.com/okonet/lint-staged) as the development stack
+- [Vercel](https://vercel.com/)
+
 ## Getting Started
 
 First, clone the project to your local machine, then set up the dependencies.
