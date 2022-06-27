@@ -5,12 +5,9 @@ import '../styles/index.scss';
 const MyApp = ({ Component, pageProps }) => {
   const [destinationUrl, setDestinationUrl] =
     useState<FormState['destinationUrl']>('');
-  const [shortlink, setShortlink] = useState<FormState['shortlink']>('');
 
   return (
-    <FormContext.Provider
-      value={{ destinationUrl, setDestinationUrl, shortlink, setShortlink }}
-    >
+    <FormContext.Provider value={{ destinationUrl, setDestinationUrl }}>
       <Component {...pageProps} />
     </FormContext.Provider>
   );

@@ -3,8 +3,7 @@ import { useRouter } from '../../../node_modules/next/router';
 import { FormContext } from '../../context/formContext';
 
 const GenerateLink: React.FC = () => {
-  const { destinationUrl, setDestinationUrl, setShortlink } =
-    useContext(FormContext);
+  const { destinationUrl, setDestinationUrl } = useContext(FormContext);
   const router = useRouter();
 
   const onSubmit = async (e) => {
@@ -16,7 +15,6 @@ const GenerateLink: React.FC = () => {
       body: JSON.stringify(body),
     });
     const data = await response.json();
-    setShortlink(data.shortlink);
     router.push(`/share/${data.shortlink}`);
   };
 
