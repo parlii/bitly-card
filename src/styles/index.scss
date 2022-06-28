@@ -1,105 +1,14 @@
-@import 'globals';
+@import 'variables';
+@import 'bootstrap';
+@import 'generate-link';
+@import 'share-card';
 
-html {
-  // background-color: rgba(171, 196, 47, 0.832);
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  // height: 100vh;
-  height: 100%;
-}
+body {
+  background-color: white;
+  color: $dark;
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
+  @media (prefers-color-scheme: dark) {
+    background-color: $navy;
+    color: white;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.destinationUrl {
-  // would like to move this guy toward the top
-  // height: 200px;
-  font-size: 20pt;
-  top: 40%;
-}
-
-.body {
-  // background-color: rgb(228, 188, 95);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  // height: 50%;
-  //   object-fit: cover;
-
-  //   border: 3px solid green;
-}
-
-.card {
-  background: url('../../public/6.png');
-  background-size: contain;
-  border: 2px solid rgb(224, 107, 17);
-  height: 950px;
-  width: 550px;
-  // width: auto;
-  // height: auto;
-  // margin-top: 50px;
-  // height: 500px;
-}
-
-.qr {
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  top: 33%;
-  // left: 4px;
-  // margin: 0 auto;
-  //   height: 250px;
-  // border: 4px solid; // want the border to go around the qr code
-  // border-color: rgb(218, 86, 25);
-  background: url('../../public/qr.png'); // this line is not working
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.shortLinkInfo {
-  background: transparent;
-  //   display: flex;
-  position: relative;
-  justify-content: center;
-  //   align-items: center;
-  top: 40%;
-  background-color: rgb(157, 147, 225);
-  width: 300px;
-  height: 110px;
-  margin: 0 auto;
-  //   left: 100px;
-  //   text-align: center;
-}
-
-.backhalf {
-  font-size: larger;
-  margin: 5px;
-  font-weight: 600;
-  font-size: 40pt;
-  color: cornsilk;
-}
-
-.forwardsTo {
-  font-size: 10pt;
-}
-
-.logo {
-  margin-top: 10px;
-}
-
-.domain {
-  margin: 5px;
 }
