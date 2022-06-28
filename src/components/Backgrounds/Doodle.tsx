@@ -12,9 +12,7 @@ interface DoodleProps {
   rule: string;
 }
 
-const Doodle: React.FC<DoodleProps> = (props) => {
-  const { rule } = props;
-
+const Doodle: React.FC<DoodleProps> = ({ rule }) => {
   return <css-doodle>{rule}</css-doodle>;
 };
 
