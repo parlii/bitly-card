@@ -30,12 +30,22 @@ $qr-width: 75%;
     text-align: center;
     width: $qr-width;
 
+    &:hover {
+      border: 3px solid #0dcaf0;
+      background-color: #f9fafb;
+    }
+
+    &__link-safety {
+      fill: aqua;
+    }
+
     &__backhalf {
       font-size: 40px;
       font-weight: 700;
     }
     &__forwardsTo {
       font-size: 10px;
+      font-style: italic; //not working
     }
   }
 }

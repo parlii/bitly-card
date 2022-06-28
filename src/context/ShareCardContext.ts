@@ -2,8 +2,9 @@ import { createContext } from 'react';
 
 export interface ShareCard {
   backhalf: string;
-  destination: string;
+  destinationDomain: string;
   domain: string;
+  qr: string;
 }
 
 export const ShareCardContext = createContext<{
