@@ -22,7 +22,7 @@ const Background3: React.FC = () => {
             border-radius: 50%;
             position: absolute;
             background: radial-gradient(
-              @stripe.@m9.@pn(#654062, #fff, transparent)
+              @stripe.@m9.@pn(#a090e7, #fff, transparent)
             );
           }
           :before {

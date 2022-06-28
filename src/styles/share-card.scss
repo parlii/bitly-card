@@ -1,47 +1,50 @@
-.share-card-page {
+@import 'themes/space';
+
+$qr-width: 75%;
+
+.share-page {
   height: 100vh;
   overflow-y: auto;
   position: relative;
 
   &__card {
-    background: url('../../public/img/backgrounds/6.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100%;
-    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-style: solid;
+    border-width: 3px;
+    max-height: 750px;
+    max-width: 100%;
+    height: 90%;
+    position: relative;
+  }
+  &__bitly-logo {
+    top: 20px;
+    position: absolute;
+    width: 50px;
   }
   &__qr-code {
-    max-width: 300px;
-    width: 58%;
+    width: $qr-width;
   }
   &__link-info {
-    background-color: rgb(157, 147, 225);
-    bottom: 10%;
-    color: $dark;
-    height: auto;
-    left: 50%;
-    margin-left: -150px;
+    border: 2px solid transparent;
+    bottom: 20px;
+    cursor: pointer;
     position: absolute;
-    width: 300px;
     text-align: center;
-
-    &:hover {
-      border: 3px solid #0dcaf0;
-      background-color: #f9fafb;
-    }
+    width: $qr-width;
+    transition: border-color 0.3s ease, color 0.3s ease,
+      background-color 0.3s ease;
 
     &__link-safety {
-      fill: aqua;
+      position: absolute;
+      top: 5px;
+      right: 8px;
     }
-
     &__backhalf {
       font-size: 40px;
       font-weight: 700;
     }
     &__forwardsTo {
       font-size: 10px;
-      font-style: italic; //not working
     }
   }
 }

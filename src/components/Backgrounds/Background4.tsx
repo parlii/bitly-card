@@ -6,7 +6,7 @@ const Background4: React.FC = () => {
     <Doodle
       rule={`
       @grid: 1 / 100%;
-      background-color: #332B33;
+      background-color: #a090e7;
       background-image: @doodle(
         :doodle {
           @grid: 1 / 10000px;
@@ -20,11 +20,11 @@ const Background4: React.FC = () => {
             overflow: hidden;
           }
           position: absolute;
-          border: 1px solid #BCB8BB;
+          border: 1px solid #fff;
           @nth(1) { border-radius: 0% 60%; }
           @size: calc(100% - 100% / @I * (@i - 1));
           background: linear-gradient(
-            45deg, @stripe(transparent, #BCB8BB 1px, transparent)
+            45deg, @stripe(transparent, #fff 1px, transparent)
           );
         );
       );
