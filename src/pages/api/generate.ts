@@ -1,12 +1,13 @@
 import { NextApiHandler } from 'next';
+import { ShareCard } from '../../context/ShareCardContext';
 
-const handler: NextApiHandler = (req, res) => {
+const handler: NextApiHandler<ShareCard> = (req, res) => {
   const body = JSON.parse(req.body);
-  console.log(body);
 
   const testResponse = {
-    destinationUrl: body.destinationUrl,
-    shortlink: 'bit.ly/abc123',
+    backhalf: 'abc123',
+    destination: body.destinationUrl,
+    domain: 'bit.ly',
   };
 
   res.status(200).json(testResponse);

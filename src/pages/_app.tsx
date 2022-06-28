@@ -9,9 +9,11 @@ import Background5 from '../components/Backgrounds/Background5';
 import Background6 from '../components/Backgrounds/Background6';
 import Background7 from '../components/Backgrounds/Background7';
 import Background8 from '../components/Backgrounds/Background8';
+import { ShareCard, ShareCardContext } from '../context/ShareCardContext';
 import '../styles/index.scss';
 
 const MyApp = ({ Component, pageProps }) => {
+  const [shareCard, setShareCard] = useState<ShareCard>();
   const [background, setBackground] = useState<number>();
   const { value: storedBackground, setValue: setStoredBackground } =
     useLocalStorage<number>('background', 0);
@@ -39,7 +41,9 @@ const MyApp = ({ Component, pageProps }) => {
       {background === 6 && <Background7 />}
       {background === 7 && <Background8 />}
 
-      <Component {...pageProps} />
+      <ShareCardContext.Provider value={{ shareCard, setShareCard }}>
+        <Component {...pageProps} />
+      </ShareCardContext.Provider>
 
       <div className="row justify-content-center fixed-bottom w-100 mb-4">
         <div className="col-auto">
