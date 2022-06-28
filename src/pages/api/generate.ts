@@ -49,7 +49,6 @@ const handler: NextApiHandler<ShareCard> = async (req, res) => {
   const body = JSON.parse(req.body);
 
   const shortenLinkResponse = await shortenUrl(body.destinationUrl);
-  console.log(shortenLinkResponse);
   const shortLinkDomain = shortenLinkResponse.id.split('/')[0];
   const shortLinkBackhalf = shortenLinkResponse.id.split('/')[1];
 

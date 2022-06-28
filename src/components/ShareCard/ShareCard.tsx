@@ -40,7 +40,7 @@ const ShareCard: React.FC = () => {
     <div
       className={`share-page share-page--theme-${theme} d-flex align-items-center justify-content-center`}
     >
-      <div className="share-page__card rounded d-flex align-items-center justify-content-center shadow-lg">
+      <div className="share-page__card rounded d-flex align-items-center justify-content-center">
         <div className="share-page__bitly-logo">
           <BitlyLogo />
         </div>
