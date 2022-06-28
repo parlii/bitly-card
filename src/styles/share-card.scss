@@ -26,6 +26,15 @@
     width: 300px;
     text-align: center;
 
+    &:hover {
+      border: 3px solid #0dcaf0;
+      background-color: #f9fafb;
+    }
+
+    &__link-safety {
+      fill: aqua;
+    }
+
     &__backhalf {
       font-size: 40px;
       font-weight: 700;
