@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React, { useContext } from 'react';
-// import qr from '../../../public/img/qr.png';
 import { ShareCardContext } from '../../context/ShareCardContext';
 
 const ShareCard: React.FC = () => {
