@@ -26,7 +26,7 @@ const shortenUrl = async (destinationUrl: Url) => {
   return await response;
 };
 
-const GenerateQR = async (
+const generateQR = async (
   shortLinkDomain: string,
   shortLinkBackhalf: string,
 ) => {
@@ -46,11 +46,11 @@ const GenerateQR = async (
 const handler: NextApiHandler<ShareCard> = async (req, res) => {
   const body = JSON.parse(req.body);
 
-  const shortenLinkResponse = await ShortenUrl(body.destinationUrl);
+  const shortenLinkResponse = await shortenUrl(body.destinationUrl);
   const shortLinkDomain = shortenLinkResponse.data.id.split('/')[0];
   const shortLinkBackhalf = shortenLinkResponse.data.id.split('/')[1];
 
-  const getQRResponse = await GenerateQR(shortLinkDomain, shortLinkBackhalf);
+  const getQRResponse = await generateQR(shortLinkDomain, shortLinkBackhalf);
   const qr = getQRResponse.data.qr_code;
 
   const destinationDomain = body.destinationUrl.split('://')[1].split('/')[0];
