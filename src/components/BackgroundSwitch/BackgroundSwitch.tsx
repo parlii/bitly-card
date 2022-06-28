@@ -48,7 +48,7 @@ const BackgroundSwitch = () => {
         <div className="row justify-content-end">
           <div className="col-auto">
             <button
-              className="btn btn-primary"
+              className="btn btn-lg btn-dark"
               onClick={() => changeBackground(1)}
             >
               →
