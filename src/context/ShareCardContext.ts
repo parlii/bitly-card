@@ -4,6 +4,7 @@ export interface ShareCard {
   backhalf: string;
   destinationDomain: string;
   domain: string;
+  qr: string;
 }
 
 export const ShareCardContext = createContext<{

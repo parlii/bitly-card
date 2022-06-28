@@ -25,46 +25,40 @@ const ShortenUrl = async (destinationUrl: Url) => {
   return await response;
 };
 
-// const GenerateQR = (url: Url) => {
-//   var payload = {
-//     group_guid: 'BlcemOt3jWM',
-//     long_url: destinationUrl,
-//     domain: 'bit.ly',
-//   };
+const GenerateQR = async (
+  shortLinkDomain: string,
+  shortLinkBackhalf: string,
+) => {
+  var config = {
+    method: 'GET',
+    url: `https://api-ssl.bitly.com/v4/bitlinks/${shortLinkDomain}/${shortLinkBackhalf}/qr`,
+    headers: {
+      Authorization: `Bearer ${process.env.BITLY_ACCESS_TOKEN}`,
+    },
+  };
 
-//   var config = {
-//     method: 'POST',
-//     url: 'https://api-ssl.bitly.com/v4/shorten',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Authorization: 'Bearer 891fde1d4190877eab0b1f1e12673cdbbe169d44',
-//     },
-//     data: JSON.stringify(payload),
-//   };
+  const response = await axios(config);
 
-//   axios(config)
-//     .then(function (response) {
-//       console.log(JSON.stringify(response.data));
-//     })
-//     .catch(function (error) {
-//       console.log(error);
-//     });
-// };
+  return await response;
+};
 
 const handler: NextApiHandler = async (req, res) => {
   const body = JSON.parse(req.body);
 
-  const shortLink = await ShortenUrl(body.destinationUrl);
+  const shortenLinkResponse = await ShortenUrl(body.destinationUrl);
+  const shortLinkDomain = shortenLinkResponse.data.id.split('/')[0];
+  const shortLinkBackhalf = shortenLinkResponse.data.id.split('/')[1];
 
-  console.log(shortLink);
+  const getQRResponse = await GenerateQR(shortLinkDomain, shortLinkBackhalf);
+  const qr = getQRResponse.data.qr_code;
 
-  // const qrCode = GenerateQR(`http://bit.ly/parli`);
+  const destinationDomain = body.destinationUrl.split('://')[1].split('/')[0];
 
   const response = {
-    domain: shortLink.data.id.split('/')[0],
-    backhalf: shortLink.data.id.split('/')[1],
-    destinationUrl: body.destinationUrl,
-    destinationDomain: body.destinationUrl.split('://')[1].split('/')[0],
+    domain: shortLinkDomain,
+    backhalf: shortLinkBackhalf,
+    destinationDomain: destinationDomain,
+    qr: qr,
   };
 
   res.status(200).json(response);

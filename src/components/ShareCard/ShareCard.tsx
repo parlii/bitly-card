@@ -1,18 +1,22 @@
 import Image from 'next/image';
 import React, { useContext } from 'react';
-import qr from '../../../public/img/qr.png';
+// import qr from '../../../public/img/qr.png';
 import { ShareCardContext } from '../../context/ShareCardContext';
 
 const ShareCard: React.FC = () => {
   const {
-    shareCard: { backhalf, domain, destinationDomain },
+    shareCard: { backhalf, domain, destinationDomain, qr },
   } = useContext(ShareCardContext);
 
   return (
     <div className="share-card-page share-card-page--style-6 d-flex align-items-center">
       <div className="share-card-page__card d-flex align-items-center justify-content-center">
         <div className="share-card-page__qr-code">
-          <Image alt={`QR code that leads to ${domain}/${backhalf}`} src={qr} />
+          <Image
+            alt={`QR code that leads to ${domain}/${backhalf}`}
+            src={qr}
+            layout="fill"
+          />
         </div>
       </div>
       <div className="share-card-page share-card-page__link-info px-4 py-2">
