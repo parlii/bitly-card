@@ -1,0 +1,21 @@
+$theme-space-bg: #09053d;
+$theme-space-accent: #a090e7;
+
+.share-page {
+  $self: &;
+
+  &--theme-space {
+    #{ $self }__card {
+      background-color: $theme-space-bg;
+      background-image: url('../../../public/img/backgrounds/space/shapes.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-color: $theme-space-accent;
+    }
+    #{ $self }__link-info {
+      background-color: $theme-space-accent;
+      color: black;
+    }
+  }
+}

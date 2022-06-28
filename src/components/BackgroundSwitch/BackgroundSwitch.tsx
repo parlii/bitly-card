@@ -44,7 +44,7 @@ const BackgroundSwitch = () => {
       {background === 6 && <Background7 />}
       {background === 7 && <Background8 />}
 
-      <div className="container-fluid fixed-bottom mb-4">
+      {/* <div className="container-fluid fixed-bottom mb-4">
         <div className="row justify-content-between">
           <div className="col-auto">
             <button
@@ -63,7 +63,7 @@ const BackgroundSwitch = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

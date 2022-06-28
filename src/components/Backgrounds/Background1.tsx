@@ -24,7 +24,7 @@ const Background1: React.FC = () => {
             border-radius: 50%;
             z-index: calc(@y - @pn(2, 1));
             background: repeating-radial-gradient(
-              @stripe(#023967 4px, #c5dff5 2px)
+              @stripe(#a090e7 4px, #ffffff 2px)
             );
           }
         );

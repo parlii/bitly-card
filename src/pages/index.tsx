@@ -13,7 +13,7 @@ const Page: React.FC = () => {
 
       <div className="generate-link-page d-flex w-100 align-items-center">
         <div className="col">
-          <div className="container">
+          <div className="container-fluid">
             {!shareCard && <GenerateLink />}
             {shareCard && <ShareCard />}
           </div>

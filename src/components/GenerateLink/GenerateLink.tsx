@@ -38,6 +38,7 @@ const GenerateLink: React.FC = () => {
             setDestinationUrl(e.target.value);
           }}
           placeholder="Enter Long URL"
+          required
           type="url"
           value={destinationUrl}
         />
