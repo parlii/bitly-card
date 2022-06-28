@@ -1,4 +1,5 @@
 import { NextApiHandler } from 'next';
+import { ShareCard } from '../../context/ShareCardContext';
 import { Url } from 'url';
 
 var axios = require('axios');
@@ -42,7 +43,7 @@ const GenerateQR = async (
   return await response;
 };
 
-const handler: NextApiHandler = async (req, res) => {
+const handler: NextApiHandler<ShareCard> = async (req, res) => {
   const body = JSON.parse(req.body);
 
   const shortenLinkResponse = await ShortenUrl(body.destinationUrl);
