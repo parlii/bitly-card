@@ -1,12 +1,11 @@
-export async function copyToClipboard(text: string): Promise<void> {
+export const copyToClipboard = (text: string): Promise<void> => {
   try {
-    return await window.navigator.clipboard.writeText(text);
+    return window.navigator.clipboard.writeText(text);
   } catch (err) {
     if (err instanceof DOMException) return legacyCopyToClipboard(text);
-
-    throw new Error(`copy to clipboard failed: ${err}`);
+    throw new Error(`Copy to clipboard failed: ${err}`);
   }
-}
+};
 
 const legacyCopyToClipboard = async (text: string) => {
   const temp = document.createElement('input');

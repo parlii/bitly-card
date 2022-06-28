@@ -18,7 +18,7 @@ $theme-space-accent: #a090e7;
       color: black;
 
       &:hover {
-        border-color: darken($theme-space-accent, 10%);
+        border-color: complement($theme-space-accent);
       }
       &--copy-confirm,
       &--copy-confirm:hover {

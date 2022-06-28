@@ -2,11 +2,13 @@ import Image from 'next/image';
 import React, { useContext, useState } from 'react';
 import { ShareCardContext } from '../../context/ShareCardContext';
 import { BitlyLogo } from '../BitlyLogo/BitlyLogo';
-import { copyToClipboard } from '../Util/copy';
+import { copyToClipboard } from '../utils/copy';
 import VerifiedLink from '../VerifiedLink/VerifiedLink';
 
 type Themes = 'space';
+
 const theme: Themes = 'space';
+let timeoutID;
 
 const ShareCard: React.FC = () => {
   const {
@@ -14,14 +16,24 @@ const ShareCard: React.FC = () => {
   } = useContext(ShareCardContext);
   const [copyConfirm, setCopyConfirm] = useState<boolean>(false);
 
-  const copyLink = () => {
-    copyToClipboard(`https://${domain}/${backhalf}`);
-
-    // show copy status alert
+  const showCopyAlert = () => {
     setCopyConfirm(true);
-    setTimeout(() => {
+    timeoutID = setTimeout(() => {
       setCopyConfirm(false);
     }, 3000);
+  };
+
+  const cancelTimeout = () => {
+    setCopyConfirm(false);
+    clearTimeout(timeoutID);
+  };
+
+  const copyLink = async () => {
+    cancelTimeout();
+    await copyToClipboard(`https://${domain}/${backhalf}`);
+
+    // show copy status alert
+    showCopyAlert();
   };
 
   return (
@@ -41,13 +53,14 @@ const ShareCard: React.FC = () => {
             width={300}
           />
         </div>
-        <div
+        <button
           className={`share-page__link-info px-5 py-2 rounded ${
             copyConfirm ? 'share-page__link-info--copy-confirm' : ''
           }`}
           onClick={() => {
             copyLink();
           }}
+          type="button"
         >
           <div className="share-page__link-info__link-safety">
             <VerifiedLink />
@@ -59,7 +72,7 @@ const ShareCard: React.FC = () => {
           <div className="share-page__link-info__forwards-to">
             <em>Forwards to {destinationDomain}/...</em>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );
