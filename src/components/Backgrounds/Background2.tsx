@@ -8,7 +8,7 @@ const Background2: React.FC = () => {
       @grid: 1 / 100%;
       background: @doodle(
         @grid: 1 / 100%;
-        background-color: #f5f8ff;
+        background-color: #ffffff;
         background-size:  160px 160px;
         background-image: @doodle(
           :doodle {
@@ -20,11 +20,11 @@ const Background2: React.FC = () => {
             @size: 100%;
             border-radius: 50%;
             position: absolute;
-            border: 3px double #4169E1;
+            border: 3px double #a090e7;
             background: @doodle(
               @grid: 1 / 100%;
               @shape: clover 4;
-              background: #4169E1;
+              background: #a090e7;
             );
             background-size: 45% 45%;
             background-repeat: no-repeat;
