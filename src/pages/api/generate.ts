@@ -31,7 +31,7 @@ const GenerateQR = async (
 ) => {
   var config = {
     method: 'GET',
-    url: `https://api-ssl.bitly.com/v4/bitlinks/${shortLinkDomain}/${shortLinkBackhalf}/qr`,
+    url: `https://api-ssl.bitly.com/v4/bitlinks/${shortLinkDomain}/${shortLinkBackhalf}/qr?image_format=svg&color=001345`,
     headers: {
       Authorization: `Bearer ${process.env.BITLY_ACCESS_TOKEN}`,
     },
