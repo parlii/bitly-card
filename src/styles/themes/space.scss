@@ -1,5 +1,6 @@
 $theme-space-bg: #09053d;
-$theme-space-accent: #a090e7;
+$theme-space-primary: #a090e7;
+$theme-space-accent: complement($theme-space-primary);
 
 .share-page {
   $self: &;
@@ -11,20 +12,23 @@ $theme-space-accent: #a090e7;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      border-color: $theme-space-accent;
+      border-color: $theme-space-primary;
     }
     #{ $self }__link-info {
-      background-color: $theme-space-accent;
+      background-color: $theme-space-primary;
       color: black;
 
       &:hover {
-        border-color: complement($theme-space-accent);
+        border-color: $theme-space-accent;
       }
       &--copy-confirm,
       &--copy-confirm:hover {
         background-color: $success;
         border-color: $success;
         color: white;
+      }
+      &__link-safety svg path {
+        fill: $theme-space-accent;
       }
     }
   }
