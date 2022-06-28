@@ -1,16 +1,7 @@
 .share-card-page {
   height: 100vh;
   overflow-y: auto;
-
-  &--style-5 {
-    background-color: #623667;
-  }
-  &--style-6 {
-    background-color: #09053d;
-  }
-  &--style-7 {
-    background-color: #11428e;
-  }
+  position: relative;
 
   &__card {
     background: url('../../public/img/backgrounds/6.png');

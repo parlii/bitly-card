@@ -2,13 +2,9 @@
 @import 'bootstrap';
 @import 'generate-link';
 @import 'share-card';
+@import 'css-doodle';
 
 body {
-  background-color: white;
-  color: $dark;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: $navy;
-    color: white;
-  }
+  background-color: $gray-50;
+  color: white;
 }

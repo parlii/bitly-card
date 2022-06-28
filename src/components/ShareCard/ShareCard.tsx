@@ -1,28 +1,16 @@
-import {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-  NextPage,
-} from 'next';
 import Image from 'next/image';
+import React, { useContext } from 'react';
+import qr from '../../../public/img/qr.png';
+import { ShareCardContext } from '../../context/ShareCardContext';
 
-import qr from '../../../../public/img/qr.png';
-
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+const ShareCard: React.FC = () => {
   const {
-    params: { domain, backhalf },
-  } = ctx;
+    shareCard: { backhalf, domain },
+  } = useContext(ShareCardContext);
 
-  return { props: { domain, backhalf } };
-};
-
-type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
-
-const Page: NextPage<Props> = ({ domain, backhalf }) => {
   return (
     <div className="share-card-page share-card-page--style-6 d-flex align-items-center">
       <div className="share-card-page__card d-flex align-items-center justify-content-center">
-        {/* <div className="logo"></div> */}
-        {/* <Image className="logo" src={logo} height="30px" width="30px" /> */}
         <div className="share-card-page__qr-code">
           <Image alt={`QR code that leads to ${domain}/${backhalf}`} src={qr} />
         </div>
@@ -38,4 +26,4 @@ const Page: NextPage<Props> = ({ domain, backhalf }) => {
   );
 };
 
-export default Page;
+export default ShareCard;
