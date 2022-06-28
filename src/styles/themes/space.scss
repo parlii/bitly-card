@@ -16,6 +16,16 @@ $theme-space-accent: #a090e7;
     #{ $self }__link-info {
       background-color: $theme-space-accent;
       color: black;
+
+      &:hover {
+        border-color: darken($theme-space-accent, 10%);
+      }
+      &--copy-confirm,
+      &--copy-confirm:hover {
+        background-color: $success;
+        border-color: $success;
+        color: white;
+      }
     }
   }
 }
