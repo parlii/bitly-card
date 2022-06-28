@@ -2,11 +2,11 @@ import { NextApiHandler } from 'next';
 import { ShareCard } from '../../context/ShareCardContext';
 import { Url } from 'url';
 
-var axios = require('axios');
+const axios = require('axios');
 
-const ShortenUrl = async (destinationUrl: Url) => {
-  var payload = {
-    group_guid: `${process.env.DEFAULT_GROUP_GUID}`,
+const shortenUrl = async (destinationUrl: Url) => {
+  const payload = {
+    group_guid: process.env.DEFAULT_GROUP_GUID,
     long_url: destinationUrl,
     domain: 'bit.ly',
   };
@@ -30,7 +30,7 @@ const GenerateQR = async (
   shortLinkDomain: string,
   shortLinkBackhalf: string,
 ) => {
-  var config = {
+  const config = {
     method: 'GET',
     url: `https://api-ssl.bitly.com/v4/bitlinks/${shortLinkDomain}/${shortLinkBackhalf}/qr?image_format=svg&color=001345`,
     headers: {
@@ -58,8 +58,8 @@ const handler: NextApiHandler<ShareCard> = async (req, res) => {
   const response = {
     domain: shortLinkDomain,
     backhalf: shortLinkBackhalf,
-    destinationDomain: destinationDomain,
-    qr: qr,
+    destinationDomain,
+    qr,
   };
 
   res.status(200).json(response);
