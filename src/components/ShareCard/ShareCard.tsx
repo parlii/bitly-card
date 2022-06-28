@@ -5,7 +5,7 @@ import { ShareCardContext } from '../../context/ShareCardContext';
 
 const ShareCard: React.FC = () => {
   const {
-    shareCard: { backhalf, domain },
+    shareCard: { backhalf, domain, destinationDomain },
   } = useContext(ShareCardContext);
 
   return (
@@ -19,7 +19,7 @@ const ShareCard: React.FC = () => {
         <div className="share-card-page__link-info__domain">{domain}</div>
         <div className="share-card-page__link-info__backhalf">{backhalf}</div>
         <div className="share-card-page__link-info__forwards-to">
-          Forwards to domain.com/
+          Forwards to {destinationDomain}/...
         </div>
       </div>
     </div>

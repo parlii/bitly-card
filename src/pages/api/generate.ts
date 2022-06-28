@@ -54,19 +54,20 @@ const ShortenUrl = async (destinationUrl: Url) => {
 const handler: NextApiHandler = async (req, res) => {
   const body = JSON.parse(req.body);
 
-  const shortenedUrl = await ShortenUrl(body.destinationUrl);
+  const shortLink = await ShortenUrl(body.destinationUrl);
 
-  console.log(shortenedUrl);
+  console.log(shortLink);
 
   // const qrCode = GenerateQR(`http://bit.ly/parli`);
 
-  const testResponse = {
-    backhalf: 'abc123',
-    destination: body.destinationUrl,
-    domain: 'bit.ly',
+  const response = {
+    domain: shortLink.data.id.split('/')[0],
+    backhalf: shortLink.data.id.split('/')[1],
+    destinationUrl: body.destinationUrl,
+    destinationDomain: body.destinationUrl.split('://')[1].split('/')[0],
   };
 
-  res.status(200).json(testResponse);
+  res.status(200).json(response);
 };
 
 export default handler;
