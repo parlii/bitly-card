@@ -97,7 +97,7 @@ const ShareCard: React.FC = () => {
               {copyConfirm ? 'Copied!' : backhalf}
             </div>
             <div className="share-page__link-info__forwards-to">
-              <em>Forwards to {destinationDomain}/...</em>
+              Forwards to {destinationDomain}/...
             </div>
           </button>
         </div>
