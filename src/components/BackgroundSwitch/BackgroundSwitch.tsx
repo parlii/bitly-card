@@ -51,7 +51,7 @@ const BackgroundSwitch = () => {
               className="btn btn-lg btn-dark"
               onClick={() => changeBackground(1)}
             >
-              →
+              ⟳
             </button>
           </div>
         </div>

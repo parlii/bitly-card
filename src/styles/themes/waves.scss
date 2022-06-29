@@ -10,7 +10,7 @@ $theme-waves-text-color: #fefdff;
 $theme-waves-qr-width: 65%;
 $theme-waves-qr-margin-left: 25%;
 
-$theme-waves-link-info-bottom: 11%;
+$theme-waves-link-info-bottom: 12%;
 
 $theme-waves-domain-font-weight: 300;
 $theme-waves-domain-font-size: 20px;
@@ -56,8 +56,14 @@ $theme-waves-domain-font-family: 'Solway';
         border-color: $success;
         color: white;
       }
-      &__link-safety svg path {
-        fill: $theme-waves-accent;
+      &__link-safety {
+        &__verified svg path {
+          fill: $theme-waves-accent;
+        }
+
+        &__unverified svg path {
+          fill: $theme-waves-accent;
+        }
       }
       &__domain {
         text-align: left;
@@ -68,7 +74,7 @@ $theme-waves-domain-font-family: 'Solway';
       }
       &__forwards-to {
         text-align: right;
-        transform: translate(40%, 30%);
+        transform: translate(25%, 40%);
         font-family: $theme-waves-domain-font-family;
       }
       &__backhalf {

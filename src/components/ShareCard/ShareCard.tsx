@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ShareCardContext } from '../../context/ShareCardContext';
 import { BitlyLogo } from '../BitlyLogo/BitlyLogo';
 import { copyToClipboard } from '../utils/copy';
-import VerifiedLink from '../VerifiedLink/VerifiedLink';
+import { VerifiedLink, UnVerifiedLink } from '../VerifiedLink/VerifiedLink';
 
 const themes = ['space', 'waves'] as const;
 type Themes = typeof themes[number];
@@ -58,6 +58,8 @@ const ShareCard: React.FC = () => {
     setCurrentTheme(themes[nextIndex]);
   };
 
+  const randomBoolean = useRef(Math.random() < 0.5);
+
   return (
     <>
       <div
@@ -90,7 +92,7 @@ const ShareCard: React.FC = () => {
             type="button"
           >
             <div className="share-page__link-info__link-safety">
-              <VerifiedLink />
+              {randomBoolean.current ? <VerifiedLink /> : <UnVerifiedLink />}
             </div>
             <div className="share-page__link-info__domain">{domain}</div>
             <div className="share-page__link-info__backhalf">
