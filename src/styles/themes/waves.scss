@@ -57,13 +57,7 @@ $theme-waves-domain-font-family: 'Solway';
         color: white;
       }
       &__link-safety {
-        &__verified svg path {
-          fill: $theme-waves-accent;
-        }
-
-        &__unverified svg path {
-          fill: $theme-waves-accent;
-        }
+        fill: $theme-waves-accent;
       }
       &__domain {
         text-align: left;

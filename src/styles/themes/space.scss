@@ -27,14 +27,8 @@ $theme-space-accent: complement($theme-space-primary);
         border-color: $success;
         color: white;
       }
-      &__link-safety {
-        &__verified svg path {
-          fill: $theme-space-accent;
-        }
-
-        &__unverified svg path {
-          fill: $theme-space-accent;
-        }
+      &__link-safety svg path {
+        fill: $theme-space-accent;
       }
     }
   }

@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ShareCardContext } from '../../context/ShareCardContext';
 import { BitlyLogo } from '../BitlyLogo/BitlyLogo';
 import { copyToClipboard } from '../utils/copy';
-import { VerifiedLink, UnVerifiedLink } from '../VerifiedLink/VerifiedLink';
+import VerifiedLink from '../VerifiedLink/VerifiedLink';
 
 const themes = ['space', 'waves'] as const;
 type Themes = typeof themes[number];
@@ -17,6 +17,8 @@ const ShareCard: React.FC = () => {
     shareCard: { backhalf, domain, destinationDomain, qr },
   } = useContext(ShareCardContext);
   const [copyConfirm, setCopyConfirm] = useState<boolean>(false);
+  const [displayVerifiedLink, setDisplayVerifiedLink] =
+    useState<boolean>(false);
   const [imageData, setImageData] = useState<string>();
   const cardRef = useRef(null);
 
@@ -27,6 +29,9 @@ const ShareCard: React.FC = () => {
       setImageData(imageDataUrl);
     };
     loadCanvas();
+    setTimeout(() => {
+      setDisplayVerifiedLink(true);
+    }, 1000);
   }, []);
 
   const [currentTheme, setCurrentTheme] = useState<Themes>('space');
@@ -57,8 +62,6 @@ const ShareCard: React.FC = () => {
     console.log(currentIndex, nextIndex, themes[nextIndex]);
     setCurrentTheme(themes[nextIndex]);
   };
-
-  const randomBoolean = useRef(Math.random() < 0.5);
 
   return (
     <>
@@ -92,9 +95,9 @@ const ShareCard: React.FC = () => {
             type="button"
           >
             <div className="share-page__link-info__link-safety">
-              {randomBoolean.current ? <VerifiedLink /> : <UnVerifiedLink />}
+              {displayVerifiedLink && <VerifiedLink />}
             </div>
-            <div className="share-page__link-info__domain">{domain}</div>
+            <div className="share-page__link-info__domain">{domain}/</div>
             <div className="share-page__link-info__backhalf">
               {copyConfirm ? 'Copied!' : backhalf}
             </div>
