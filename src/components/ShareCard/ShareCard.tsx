@@ -7,9 +7,9 @@ import { BitlyLogo } from '../BitlyLogo/BitlyLogo';
 import { copyToClipboard } from '../utils/copy';
 import VerifiedLink from '../VerifiedLink/VerifiedLink';
 
-type Themes = 'space';
+const themes = ['space', 'waves'] as const;
+type Themes = typeof themes[number];
 
-const theme: Themes = 'space';
 let timeoutID;
 
 const ShareCard: React.FC = () => {
@@ -28,6 +28,8 @@ const ShareCard: React.FC = () => {
     };
     loadCanvas();
   }, []);
+
+  const [currentTheme, setCurrentTheme] = useState<Themes>('space');
 
   const showCopyAlert = () => {
     setCopyConfirm(true);
@@ -49,12 +51,19 @@ const ShareCard: React.FC = () => {
     showCopyAlert();
   };
 
+  const changeTheme = () => {
+    let currentIndex = themes.indexOf(currentTheme);
+    let nextIndex = (currentIndex + 1) % themes.length;
+    console.log(currentIndex, nextIndex, themes[nextIndex]);
+    setCurrentTheme(themes[nextIndex]);
+  };
+
   return (
     <>
       <div
         className={classNames(
           'share-page d-flex align-items-center justify-content-center',
-          `share-page--theme-${theme}`,
+          `share-page--theme-${currentTheme}`,
         )}
         ref={cardRef}
       >
@@ -92,8 +101,17 @@ const ShareCard: React.FC = () => {
             </div>
           </button>
         </div>
-      </div>
 
+        <div className="share-page__theme-switcher">
+          <button
+            type="button"
+            className="btn btn-dark"
+            onClick={() => changeTheme()}
+          >
+            ⟳
+          </button>
+        </div>
+      </div>
       {imageData && (
         <a
           className="btn btn-dark"
