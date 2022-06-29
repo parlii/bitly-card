@@ -3,9 +3,9 @@
 $qr-width: 75%;
 
 .share-page {
-  height: 100vh;
   overflow-y: auto;
   position: relative;
+  @extend .vh-100-var;
 
   &__card {
     aspect-ratio: 9 / 16;
@@ -29,9 +29,9 @@ $qr-width: 75%;
     border: 3px solid transparent;
     bottom: 20px;
     cursor: pointer;
+    min-width: $qr-width;
     position: absolute;
     text-align: center;
-    width: $qr-width;
     transition: border-color 0.3s ease, color 0.3s ease,
       background-color 0.3s ease;
 

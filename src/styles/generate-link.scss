@@ -1,5 +1,5 @@
 .generate-link-page {
-  height: 100vh;
+  @extend .vh-100-var;
   overflow-y: auto;
   position: absolute;
 }

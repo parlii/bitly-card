@@ -4,6 +4,11 @@
 @import 'share-card';
 @import 'css-doodle';
 
+.vh-100-var {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
 body {
   background-color: white;
   color: black;
