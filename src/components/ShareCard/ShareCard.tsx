@@ -57,6 +57,7 @@ const ShareCard: React.FC = () => {
   };
 
   const changeTheme = () => {
+    cancelTimeout();
     let currentIndex = themes.indexOf(currentTheme);
     let nextIndex = (currentIndex + 1) % themes.length;
     console.log(currentIndex, nextIndex, themes[nextIndex]);
