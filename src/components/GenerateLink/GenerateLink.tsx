@@ -1,6 +1,7 @@
 import { useLocalStorage } from 'haversack';
 import React, { useContext, useEffect, useState } from 'react';
 import { ShareCard, ShareCardContext } from '../../context/ShareCardContext';
+import { BitlyLogo } from '../BitlyLogo/BitlyLogo';
 
 const GenerateLink: React.FC = () => {
   const [destinationUrl, setDestinationUrl] = useState<string>('');
@@ -54,8 +55,13 @@ const GenerateLink: React.FC = () => {
     <div className="grid-generator">
       <div className="container py-4">
         <form name="generate-link" onSubmit={onSubmit}>
-          <div className="row align-items-center">
-            <div className="col-sm">
+          <div className="row align-items-center gx-2 gx-sm-4 gy-2">
+            <div className="col-auto">
+              <div className="generate-link__bitly-logo">
+                <BitlyLogo />
+              </div>
+            </div>
+            <div className="col">
               <div className="form-floating">
                 <input
                   className="form-control form-control-lg"
@@ -94,7 +100,7 @@ const GenerateLink: React.FC = () => {
             <div className="list-group">
               {linkHistory.map((historyItem) => (
                 <button
-                  className="list-group-item list-group-item-dark list-group-item-action"
+                  className="list-group-item list-group-item-action"
                   onClick={() => {
                     setShareCard(historyItem);
                   }}
