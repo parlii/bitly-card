@@ -1,4 +1,5 @@
 @import 'themes/space';
+@import 'themes/waves';
 
 $qr-width: 75%;
 
@@ -6,6 +7,14 @@ $qr-width: 75%;
   overflow-y: auto;
   position: relative;
   @extend .vh-100-var;
+  flex-direction: column;
+
+  &__theme-switcher {
+    display: flex;
+    width: 400px;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
 
   &__card {
     aspect-ratio: 9 / 16;
@@ -21,13 +30,14 @@ $qr-width: 75%;
     top: 20px;
     position: absolute;
     width: 50px;
+    z-index: 2;
   }
   &__qr-code {
     width: $qr-width;
   }
   &__link-info {
     border: 3px solid transparent;
-    bottom: 20px;
+    bottom: 40px;
     cursor: pointer;
     min-width: $qr-width;
     position: absolute;
@@ -44,7 +54,7 @@ $qr-width: 75%;
       font-size: 40px;
       font-weight: 700;
     }
-    &__forwardsTo {
+    &__forwards-to {
       font-size: 10px;
     }
   }
