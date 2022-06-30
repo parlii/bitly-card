@@ -19,31 +19,34 @@ const GenerateLink: React.FC = () => {
         method: 'POST',
         body: JSON.stringify(body),
       });
+      if (response.status >= 400 && response.status < 600) {
+        throw new Error("That didn't work. Is the URL valid?");
+      }
       shareCard = await response.json();
     } catch (err) {
       setSubmitting(false);
       setError(err.message);
     }
 
-    setShareCard({ ...shareCard });
+    shareCard && setShareCard({ ...shareCard });
   };
 
   return (
     <>
       <form name="generate-link" onSubmit={onSubmit}>
+        {error && <div className="alert alert-danger mt-4">{error}</div>}
         <input
           className="form-control form-control-lg"
           name="destination-url"
           onChange={(e) => {
             setDestinationUrl(e.target.value);
+            setError(null);
           }}
           placeholder="Enter Long URL"
           required
           type="url"
           value={destinationUrl}
         />
-
-        {error && <div className="alert alert-danger mt-4">{error}</div>}
 
         <div className="row mt-4 justify-content-center">
           <div className="col-auto">
