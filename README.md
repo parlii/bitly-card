@@ -1,12 +1,14 @@
 # Bitly Card
 
+Live at: https://bitly-card.vercel.app/
+
 Created for the Bitly hack week in June 2022 by Parli, Jimmy, and Colin.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## About the Project
 
-Bitly Card is a greenfield app for users to input a destination URL, generate a short link, and then display a beautiful customized page for sharing the link.
+Bitly Card is a greenfield app for users to input a destination URL, generate a short link, and then display a beautiful customized page for sharing the link. More info on the About page of the app
 
 ### Technology
 
@@ -39,6 +41,7 @@ This project needs an environment variable called `BITLY_ACCESS_TOKEN` to shorte
 
 ```env
 BITLY_ACCESS_TOKEN=your-access-token
+DEFAULT_GROUP_GUID=your-group-guid
 ```
 
 You can generate an access token from the [Developer settings](https://app.bitly.com/settings/api/) in your Bitly account.
