@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import CardTools from '../components/CardTools/CardTools';
 import GenerateLink from '../components/GenerateLink/GenerateLink';
 import Head from '../components/Head/Head';
 import ShareCard from '../components/ShareCard/ShareCard';
@@ -11,12 +12,13 @@ const Page: React.FC = () => {
     <>
       <Head />
 
-      <div className="generate-link-page d-flex w-100 align-items-center">
-        <div className="col">
-          <div className="container">
-            {!shareCard && <GenerateLink />}
-            {shareCard && <ShareCard />}
-          </div>
+      <div className="grid-container">
+        <div className="grid-generator">
+          <GenerateLink />
+        </div>
+        <div className="grid-card">{shareCard && <ShareCard />}</div>
+        <div className="grid-footer">
+          <CardTools />
         </div>
       </div>
     </>

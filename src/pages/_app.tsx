@@ -32,7 +32,7 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <ShareCardContext.Provider value={{ shareCard, setShareCard }}>
-      <BackgroundSwitch />
+      {/* <BackgroundSwitch /> */}
       <Component {...pageProps} />
     </ShareCardContext.Provider>
   );

@@ -1,15 +1,39 @@
 @import 'variables';
 @import 'bootstrap';
-@import 'generate-link';
 @import 'share-card';
 @import 'css-doodle';
+
+body {
+  background-color: white;
+  color: black;
+}
 
 .vh-100-var {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
 
-body {
-  background-color: white;
-  color: black;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    'grid-generator'
+    'grid-card'
+    'grid-footer';
+  @extend .vh-100-var;
+}
+
+.grid-generator {
+  grid-area: grid-generator;
+}
+
+.grid-card {
+  grid-area: grid-card;
+  overflow-y: auto;
+}
+
+.grid-footer {
+  grid-area: grid-footer;
 }

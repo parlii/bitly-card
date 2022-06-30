@@ -12,10 +12,14 @@ Bitly Card is a greenfield app for users to input a destination URL, generate a 
 
 - [React 18](https://reactjs.org/) and [Next.js 12.1](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Husky](https://typicode.github.io/husky/#/), [lint-staged](https://github.com/okonet/lint-staged) as the development stack
 - [Vercel](https://vercel.com/)
+- Sass + Bootstrap
+- [CSS Doodle](https://css-doodle.com/)
+- [html-to-image](https://www.npmjs.com/package/html-to-image)
+- [Haversack](https://www.npmjs.com/package/haversack)
+- [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Husky](https://typicode.github.io/husky/#/), [lint-staged](https://github.com/okonet/lint-staged) as the development stack
 
-## Getting Started
+## Development
 
 First, clone the project to your local machine, then set up the dependencies.
 
@@ -39,6 +43,7 @@ This project needs an environment variable called `BITLY_ACCESS_TOKEN` to shorte
 
 ```env
 BITLY_ACCESS_TOKEN=your-access-token
+BITLY_DEFAULT_GROUP_GUID=your-group-guid
 ```
 
 You can generate an access token from the [Developer settings](https://app.bitly.com/settings/api/) in your Bitly account.

@@ -4,11 +4,8 @@
 $qr-width: 75%;
 
 .share-page {
-  overflow-y: auto;
   position: relative;
-  @extend .vh-100-var;
   flex-direction: column;
-
   &__theme-switcher {
     display: flex;
     width: 400px;
@@ -51,7 +48,6 @@ $qr-width: 75%;
       right: 8px;
     }
     &__backhalf {
-      font-size: 40px;
       font-weight: 700;
     }
     &__forwards-to {

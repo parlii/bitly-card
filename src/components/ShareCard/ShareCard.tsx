@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { toPng } from 'html-to-image';
 import Image from 'next/future/image';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ShareCardContext } from '../../context/ShareCardContext';
@@ -19,16 +18,9 @@ const ShareCard: React.FC = () => {
   const [copyConfirm, setCopyConfirm] = useState<boolean>(false);
   const [displayVerifiedLink, setDisplayVerifiedLink] =
     useState<boolean>(false);
-  const [imageData, setImageData] = useState<string>();
   const cardRef = useRef(null);
 
   useEffect(() => {
-    const element = cardRef.current;
-    const loadCanvas = async () => {
-      const imageDataUrl = await toPng(element);
-      setImageData(imageDataUrl);
-    };
-    loadCanvas();
     setTimeout(() => {
       setDisplayVerifiedLink(true);
     }, 1000);
@@ -98,7 +90,7 @@ const ShareCard: React.FC = () => {
               {displayVerifiedLink && <VerifiedLink />}
             </div>
             <div className="share-page__link-info__domain">{domain}/</div>
-            <div className="share-page__link-info__backhalf">
+            <div className="share-page__link-info__backhalf h1">
               {copyConfirm ? 'Copied!' : backhalf}
             </div>
             <div className="share-page__link-info__forwards-to">
@@ -117,15 +109,6 @@ const ShareCard: React.FC = () => {
           </button>
         </div>
       </div>
-      {imageData && (
-        <a
-          className="btn btn-dark"
-          download={`${backhalf}.png`}
-          href={imageData}
-        >
-          Download
-        </a>
-      )}
     </>
   );
 };
