@@ -1,0 +1,40 @@
+$theme-bitly-bg: #11428e;
+$theme-bitly-light-bg: lighten(desaturate($theme-bitly-bg, 10%), 15%);
+$theme-bitly-primary: $orange;
+$theme-bitly-accent: complement($theme-bitly-primary);
+
+.grid-container.theme-bitly {
+  background-color: $theme-bitly-light-bg;
+  color: color-contrast($theme-bitly-light-bg);
+}
+
+.share-page {
+  $self: &;
+
+  &--theme-bitly {
+    #{ $self }__card {
+      background-color: $theme-bitly-bg;
+      background-image: url('../../../public/img/backgrounds/bitly/bitly.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-color: $theme-bitly-accent;
+    }
+    #{ $self }__link-info {
+      background-color: $theme-bitly-accent;
+      color: color-contrast($theme-bitly-accent);
+
+      &:hover {
+        border-color: $theme-bitly-primary;
+      }
+      &--copy-confirm,
+      &--copy-confirm:hover {
+        background-color: $success;
+        border-color: $success;
+      }
+      &__link-safety svg path {
+        fill: $theme-bitly-bg;
+      }
+    }
+  }
+}

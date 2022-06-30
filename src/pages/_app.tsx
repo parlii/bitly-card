@@ -1,8 +1,11 @@
 import debounce from 'awesome-debounce-promise';
-import 'css-doodle';
+import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
-import BackgroundSwitch from '../components/BackgroundSwitch/BackgroundSwitch';
-import { ShareCard, ShareCardContext } from '../context/ShareCardContext';
+import {
+  ShareCard,
+  ShareCardContext,
+  Themes,
+} from '../context/ShareCardContext';
 import '../styles/index.scss';
 
 const setViewportHeight = (): void => {
@@ -13,6 +16,7 @@ const setViewportHeight = (): void => {
 
 const MyApp = ({ Component, pageProps }) => {
   const [shareCard, setShareCard] = useState<ShareCard>();
+  const [theme, setTheme] = useState<Themes>(Themes.Bitly);
 
   const updateWindowData = useRef(
     debounce(() => {
@@ -31,9 +35,12 @@ const MyApp = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <ShareCardContext.Provider value={{ shareCard, setShareCard }}>
-      {/* <BackgroundSwitch /> */}
-      <Component {...pageProps} />
+    <ShareCardContext.Provider
+      value={{ shareCard, setShareCard, theme, setTheme }}
+    >
+      <div className={classNames('grid-container', `theme-${theme}`)}>
+        <Component {...pageProps} />
+      </div>
     </ShareCardContext.Provider>
   );
 };

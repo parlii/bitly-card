@@ -1,6 +1,12 @@
 $theme-space-bg: #09053d;
+$theme-space-light-bg: lighten(desaturate($theme-space-bg, 25%), 15%);
 $theme-space-primary: #a090e7;
 $theme-space-accent: complement($theme-space-primary);
+
+.grid-container.theme-space {
+  background-color: $theme-space-light-bg;
+  color: color-contrast($theme-space-light-bg);
+}
 
 .share-page {
   $self: &;
@@ -8,7 +14,7 @@ $theme-space-accent: complement($theme-space-primary);
   &--theme-space {
     #{ $self }__card {
       background-color: $theme-space-bg;
-      background-image: url('../../../public/img/backgrounds/space/shapes.svg');
+      background-image: url('../../../public/img/backgrounds/space/space.svg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -16,7 +22,7 @@ $theme-space-accent: complement($theme-space-primary);
     }
     #{ $self }__link-info {
       background-color: $theme-space-primary;
-      color: black;
+      color: color-contrast($theme-space-primary);
 
       &:hover {
         border-color: $theme-space-accent;
@@ -25,7 +31,6 @@ $theme-space-accent: complement($theme-space-primary);
       &--copy-confirm:hover {
         background-color: $success;
         border-color: $success;
-        color: white;
       }
       &__link-safety svg path {
         fill: $theme-space-accent;

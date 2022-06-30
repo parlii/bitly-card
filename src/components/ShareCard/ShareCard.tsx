@@ -6,27 +6,21 @@ import { BitlyLogo } from '../BitlyLogo/BitlyLogo';
 import { copyToClipboard } from '../utils/copy';
 import VerifiedLink from '../VerifiedLink/VerifiedLink';
 
-const themes = ['space', 'waves'] as const;
-type Themes = typeof themes[number];
-
 let timeoutID;
 
 const ShareCard: React.FC = () => {
-  const {
-    shareCard: { backhalf, domain, destinationDomain, qr },
-  } = useContext(ShareCardContext);
+  const { setShareCard, shareCard, theme } = useContext(ShareCardContext);
   const [copyConfirm, setCopyConfirm] = useState<boolean>(false);
   const [displayVerifiedLink, setDisplayVerifiedLink] =
     useState<boolean>(false);
   const cardRef = useRef(null);
+  const { backhalf, domain, qr } = shareCard;
 
   useEffect(() => {
     setTimeout(() => {
       setDisplayVerifiedLink(true);
     }, 1000);
   }, []);
-
-  const [currentTheme, setCurrentTheme] = useState<Themes>('space');
 
   const showCopyAlert = () => {
     setCopyConfirm(true);
@@ -48,19 +42,12 @@ const ShareCard: React.FC = () => {
     showCopyAlert();
   };
 
-  const changeTheme = () => {
-    let currentIndex = themes.indexOf(currentTheme);
-    let nextIndex = (currentIndex + 1) % themes.length;
-    console.log(currentIndex, nextIndex, themes[nextIndex]);
-    setCurrentTheme(themes[nextIndex]);
-  };
-
   return (
-    <>
+    <div className="grid-card">
       <div
         className={classNames(
           'share-page d-flex align-items-center justify-content-center',
-          `share-page--theme-${currentTheme}`,
+          `share-page--theme-${theme}`,
         )}
         ref={cardRef}
       >
@@ -93,23 +80,19 @@ const ShareCard: React.FC = () => {
             <div className="share-page__link-info__backhalf h1">
               {copyConfirm ? 'Copied!' : backhalf}
             </div>
-            <div className="share-page__link-info__forwards-to">
-              Forwards to {destinationDomain}/...
-            </div>
           </button>
         </div>
 
-        <div className="share-page__theme-switcher">
-          <button
-            type="button"
-            className="btn btn-dark"
-            onClick={() => changeTheme()}
-          >
-            ⟳
-          </button>
-        </div>
+        <button
+          aria-label="Close share card"
+          className="btn-close"
+          onClick={() => {
+            setShareCard(null);
+          }}
+          type="button"
+        />
       </div>
-    </>
+    </div>
   );
 };
 

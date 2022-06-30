@@ -15,7 +15,7 @@ const GenerateLink: React.FC = () => {
   } = useLocalStorage<Array<ShareCard>>('card-history');
 
   useEffect(() => {
-    if (storedHistory?.length) {
+    if (storedHistory) {
       const uniqueHistory = storedHistory.filter(
         (v, i, a) => a.findIndex((v2) => v2.backhalf === v.backhalf) === i,
       );
@@ -29,63 +29,72 @@ const GenerateLink: React.FC = () => {
     setSubmitting(true);
     e.preventDefault();
 
-    let shareCard: ShareCard;
     try {
       const body = { destinationUrl };
       const response = await fetch('api/generate', {
         method: 'POST',
         body: JSON.stringify(body),
       });
-      shareCard = await response.json();
+      const shareCard = await response.json();
+      setShareCard({ ...shareCard });
+      const updatedHistory = storedHistory?.length
+        ? storedHistory.concat([shareCard])
+        : [shareCard];
+      setStoredHistory(updatedHistory);
     } catch (err) {
-      setSubmitting(false);
       setError(err.message);
     }
 
-    setShareCard({ ...shareCard });
-    const updatedHistory = storedHistory?.length
-      ? storedHistory.concat([shareCard])
-      : [shareCard];
-    setStoredHistory(updatedHistory);
+    setSubmitting(false);
   };
 
-  return (
-    <div className="container my-4">
-      <form name="generate-link" onSubmit={onSubmit}>
-        <div className="row align-items-center">
-          <div className="col-sm">
-            <input
-              className="form-control form-control-lg"
-              name="destination-url"
-              onChange={(e) => {
-                setDestinationUrl(e.target.value);
-              }}
-              placeholder="Enter Long URL"
-              required
-              type="url"
-              value={destinationUrl}
-            />
-          </div>
-          <div className="col-sm-auto">
-            <button
-              className="btn btn-lg btn-dark w-100 w-sm-auto mt-2 mt-md-0"
-              disabled={submitting}
-              type="submit"
-            >
-              Create Link
-            </button>
-          </div>
-        </div>
+  const disabled = submitting || !!shareCard;
 
-        {error && <div className="alert alert-danger mt-2">{error}</div>}
+  return (
+    <div className="grid-generator">
+      <div className="container py-4">
+        <form name="generate-link" onSubmit={onSubmit}>
+          <div className="row align-items-center">
+            <div className="col-sm">
+              <div className="form-floating">
+                <input
+                  className="form-control form-control-lg"
+                  disabled={disabled}
+                  name="destination-url"
+                  onChange={(e) => {
+                    setDestinationUrl(e.target.value);
+                  }}
+                  placeholder="https://bitly.com"
+                  required
+                  type="url"
+                  value={destinationUrl}
+                />
+                <label className="text-black" htmlFor="destination-url">
+                  Enter Long URL
+                </label>
+              </div>
+            </div>
+            <div className="col-sm-auto">
+              <button
+                className="btn btn-lg btn-dark w-100 w-sm-auto mt-2 mt-md-0"
+                disabled={disabled}
+                type="submit"
+              >
+                Create Link
+              </button>
+            </div>
+          </div>
+
+          {error && <div className="alert alert-danger mt-2">{error}</div>}
+        </form>
 
         {linkHistory?.length && !shareCard && (
           <>
-            <div className="list-group mt-4">
-              <div className="h4">Recent link history</div>
+            <div className="h5 mt-4">Recent link history</div>
+            <div className="list-group">
               {linkHistory.map((historyItem) => (
                 <button
-                  className="list-group-item"
+                  className="list-group-item list-group-item-dark list-group-item-action"
                   onClick={() => {
                     setShareCard(historyItem);
                   }}
@@ -96,12 +105,13 @@ const GenerateLink: React.FC = () => {
                 </button>
               ))}
             </div>
-            <div className="row justify-content-end  mt-4">
+            <div className="row justify-content-end mt-4">
               <div className="col-auto">
                 <button
                   className="btn btn-dark"
                   onClick={() => {
                     resetStoredHistory();
+                    setLinkHistory(null);
                   }}
                 >
                   Clear history
@@ -110,7 +120,7 @@ const GenerateLink: React.FC = () => {
             </div>
           </>
         )}
-      </form>
+      </div>
     </div>
   );
 };

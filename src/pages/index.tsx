@@ -11,16 +11,9 @@ const Page: React.FC = () => {
   return (
     <>
       <Head />
-
-      <div className="grid-container">
-        <div className="grid-generator">
-          <GenerateLink />
-        </div>
-        <div className="grid-card">{shareCard && <ShareCard />}</div>
-        <div className="grid-footer">
-          <CardTools />
-        </div>
-      </div>
+      <GenerateLink />
+      {shareCard && <ShareCard />}
+      {shareCard && <CardTools />}
     </>
   );
 };

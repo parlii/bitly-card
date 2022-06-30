@@ -1,11 +1,10 @@
 @import 'variables';
 @import 'bootstrap';
 @import 'share-card';
-@import 'css-doodle';
 
 body {
   background-color: white;
-  color: black;
+  color: $gray-90;
 }
 
 .vh-100-var {
@@ -21,19 +20,22 @@ body {
   grid-template-areas:
     'grid-generator'
     'grid-card'
-    'grid-footer';
+    'grid-tools';
   @extend .vh-100-var;
 }
 
 .grid-generator {
+  background-color: rgba(0, 0, 0, 0.1);
   grid-area: grid-generator;
 }
 
 .grid-card {
   grid-area: grid-card;
   overflow-y: auto;
+  position: relative;
 }
 
-.grid-footer {
-  grid-area: grid-footer;
+.grid-tools {
+  background-color: rgba(0, 0, 0, 0.1);
+  grid-area: grid-tools;
 }

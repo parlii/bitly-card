@@ -1,22 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Solway:wght@300&display=swap');
-
 $theme-waves-bg: #5c3964;
+$theme-waves-light-bg: lighten(desaturate($theme-waves-bg, 10%), 15%);
 $theme-waves-primary: #9d69c0;
 $theme-waves-accent: complement($theme-waves-primary);
 
-$theme-waves-text-color: #fefdff;
-
-$theme-waves-qr-width: 65%;
-$theme-waves-qr-margin-left: 25%;
-
-$theme-waves-link-info-bottom: 12%;
-
-$theme-waves-domain-font-weight: 300;
-$theme-waves-domain-font-size: 20px;
-
-$theme-waves-domain-font-family-backhalf: 'Coiny';
-$theme-waves-domain-font-family: 'Solway';
+.grid-container.theme-waves {
+  background-color: $theme-waves-light-bg;
+  color: color-contrast($theme-waves-light-bg);
+}
 
 .share-page {
   $self: &;
@@ -24,28 +14,15 @@ $theme-waves-domain-font-family: 'Solway';
   &--theme-waves {
     #{ $self }__card {
       background-color: $theme-waves-bg;
-      background-image: url('../../../public/img/backgrounds/new/shapes.svg');
+      background-image: url('../../../public/img/backgrounds/waves/waves.svg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       border-color: $theme-waves-primary;
     }
-    #{ $self }__qr-code {
-      // margin-left: $theme-waves-qr-margin-left;
-      width: $theme-waves-qr-width;
-      transform: translate(0px, -60px);
-    }
-    #{ $self }__bitly-logo {
-      position: absolute;
-      width: 55px;
-      transform: translate(-143px, 117px);
-    }
-
     #{ $self }__link-info {
       background-color: $theme-waves-primary;
-      background-color: transparent;
-      color: $theme-waves-text-color;
-      bottom: $theme-waves-link-info-bottom;
+      color: color-contrast($theme-waves-primary);
 
       &:hover {
         border-color: $theme-waves-accent;
@@ -54,25 +31,9 @@ $theme-waves-domain-font-family: 'Solway';
       &--copy-confirm:hover {
         background-color: $success;
         border-color: $success;
-        color: white;
       }
-      &__link-safety {
+      &__link-safety svg path {
         fill: $theme-waves-accent;
-      }
-      &__domain {
-        text-align: left;
-        font-size: $theme-waves-domain-font-size;
-        transform: translate(-20%, 0%);
-        font-weight: $theme-waves-domain-font-weight;
-        font-family: $theme-waves-domain-font-family;
-      }
-      &__forwards-to {
-        text-align: right;
-        transform: translate(25%, 40%);
-        font-family: $theme-waves-domain-font-family;
-      }
-      &__backhalf {
-        font-family: $theme-waves-domain-font-family-backhalf;
       }
     }
   }

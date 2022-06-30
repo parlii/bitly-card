@@ -14,7 +14,6 @@ Bitly Card is a greenfield app for users to input a destination URL, generate a 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vercel](https://vercel.com/)
 - Sass + Bootstrap
-- [CSS Doodle](https://css-doodle.com/)
 - [html-to-image](https://www.npmjs.com/package/html-to-image)
 - [Haversack](https://www.npmjs.com/package/haversack)
 - [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Husky](https://typicode.github.io/husky/#/), [lint-staged](https://github.com/okonet/lint-staged) as the development stack
