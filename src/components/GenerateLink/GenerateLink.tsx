@@ -1,6 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { ShareCard, ShareCardContext } from '../../context/ShareCardContext';
 
+function addDefaultScheme(url) {
+  if (!/^https?:\/\//i.test(url)) {
+    url = 'http://' + url;
+  }
+  return url;
+}
+
 const GenerateLink: React.FC = () => {
   const [destinationUrl, setDestinationUrl] = useState<string>('');
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -39,7 +46,8 @@ const GenerateLink: React.FC = () => {
           className="form-control form-control-lg"
           name="destination-url"
           onChange={(e) => {
-            setDestinationUrl(e.target.value);
+            let url = addDefaultScheme(e.target.value);
+            setDestinationUrl(url);
             setError(null);
           }}
           placeholder="Enter Long URL"
